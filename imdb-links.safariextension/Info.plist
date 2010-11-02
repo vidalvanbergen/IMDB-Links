@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Vidal van Bergen</string>
+	<key>CFBundleDisplayName</key>
+	<string>IMDb Links</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.vidalvbergen.imdblinks</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>Chrome</key>
+	<dict/>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>links.js</string>
+			</array>
+		</dict>
+		<key>Whitelist</key>
+		<array>
+			<string>http://*.imdb.com/title/*</string>
+			<string>http://imdb.com/title/*</string>
+			<string>http://*.imdb.com/name/*</string>
+			<string>http://imdb.com/name/*</string>
+		</array>
+	</dict>
+	<key>Description</key>
+	<string>Add informative links to IMDB movie pages.</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://mariusth.channelwood.org/SafariExtensions/update.plist</string>
+	<key>Website</key>
+	<string>http://mariusth.channelwood.org/SafariExtensions/</string>
+</dict>
+</plist>
