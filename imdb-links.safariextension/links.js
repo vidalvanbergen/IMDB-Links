@@ -145,11 +145,11 @@ searchEngine("Bierdopje (TV Series)",
 // Movie Information -----------------------
 
 // sectionHead(":");
-// 
+//
 // searchEngine("",
 //                 "%title",
 //                 "");
-// 
+//
 // horizontalrule();
 
 
@@ -175,6 +175,7 @@ function searchEngine(mTitle, searchurl, favicon) {
   aLink.title = "Search " + mTitle + " for: " + title;
   aLink.innerHTML = '<img src="' + favicon + '" align="absmiddle" border="0" vspace="3" height="16px"> <u>' + mTitle + '</u>';
   div.appendChild(aLink);
+
   div.appendChild(document.createElement("br"));
 };
 
@@ -182,6 +183,6 @@ function getSearchURL(url) {
   url = url.replace(/%title/, encodeURIComponent(title));
   // console.log(url);
   return url;
-} 
+}
 
 namePos.parentNode.insertBefore(div, namePos.nextSibling);
