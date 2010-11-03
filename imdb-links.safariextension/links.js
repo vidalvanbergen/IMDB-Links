@@ -27,14 +27,21 @@ namePos = document.evaluate( '//div[@id = "tn15content"]/div', document, null, X
 var div = document.createElement("div");
 if (namePos2 == null) {
   div.className = 'strip toplinks';
-  var title = nameEl.innerHTML.replace(/<[^>]+>/g, ''); // strip any HTML
+  // var title = nameEl.innerHTML.replace(/<[^>]+>/g, ''); // strip any HTML
 } else {
   div.className = 'strip toplinks aux-content-widget-3';
-  var title = nameEl2.innerHTML.replace(/<[^>]+>/g, ''); // strip any HTML
+  // var title = nameEl2.innerHTML.replace(/<[^>]+>/g, ''); // strip any HTML
 };
+
+var title = document.title;
+title = title.match(/^(.*) \(/)[1];
 
 title = title.replace(/(\([^\)]+\))/g, ''); // strip the date
 title = title.replace(/^\s+|\s+$/g, ''); // trim
+
+// Cus im stuupid....
+title = title.replace('\"', ''); // strip double quotes 1
+title = title.replace('\"', ''); // strip double quotes 2
 
 // GROUP Search Engines --------------------------------------------------
 
@@ -64,7 +71,7 @@ searchEngine("Wikipedia",
                 "http://en.wikipedia.org/wiki/Special:Search?search=%title",
                 "http://en.wikipedia.org/favicon.ico");
 searchEngine("Google Images",
-                "'http://images.google.com/images?hl=en&q=%title",
+                "http://images.google.com/images?hl=en&q=%title",
                 "http://mycroft.mozdev.org/installos.php/14945/googleNL.ico");
 searchEngine("Freecovers",
                 "http://www.freecovers.net/search.php?search=%title",
