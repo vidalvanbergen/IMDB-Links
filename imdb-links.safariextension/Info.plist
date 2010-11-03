@@ -18,6 +18,13 @@
 	<dict/>
 	<key>Content</key>
 	<dict>
+		<key>Blacklist</key>
+		<array>
+			<string>http://*.imdb.com/title/*/*/</string>
+			<string>http://imdb.com/title/*/*/</string>
+			<string>http://*.imdb.com/name/*/*/</string>
+			<string>http://imdb.com/name/*/*/</string>
+		</array>
 		<key>Scripts</key>
 		<dict>
 			<key>End</key>
@@ -27,10 +34,12 @@
 		</dict>
 		<key>Whitelist</key>
 		<array>
-			<string>http://*.imdb.com/title/*</string>
-			<string>http://imdb.com/title/*</string>
+			<string>http://*.imdb.com/title/*/</string>
+			<string>http://imdb.com/title/*/</string>
 			<string>http://*.imdb.com/name/*</string>
 			<string>http://imdb.com/name/*</string>
+			<string>http://*.imdb.com/title/*/combined</string>
+			<string>http://*.imdb.com/title/*/maindetails</string>
 		</array>
 	</dict>
 	<key>Description</key>
