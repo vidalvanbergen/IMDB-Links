@@ -12,18 +12,29 @@
 // This script is based IMDb External Sites + YouTube by Natty Dreed.
 // Modification by Mimimi
 // Adapted to Safari 5 extension by Vidal
-// 2 november 2010
-// Current version 1.0
+// 3 november 2010
+// Current version 2.1
 
-nameEl = document.evaluate( '//h1[@class = "header"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
-namePos = document.evaluate( '//div[@id = "sidebar"]/div', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
+// New:
+nameEl2 = document.evaluate( '//h1[@class = "header"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
+namePos2 = document.evaluate( '//div[@id = "sidebar"]/div', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
+// Old:
+nameEl = document.evaluate( '//div[@id = "tn15crumbs"]/b', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
+namePos = document.evaluate( '//div[@id = "tn15content"]/div', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
 
-var title = nameEl.innerHTML.replace(/<[^>]+>/g, ''); // strip any HTML
-title = title.replace(/(\([^\)]+\))/g, ''); // strip the date
-title = title.replace(/^\s+|\s+$/g, ''); // trim
+
 
 var div = document.createElement("div");
-div.className = 'strip toplinks aux-content-widget-3';
+if (namePos2 == null) {
+  div.className = 'strip toplinks';
+  var title = nameEl.innerHTML.replace(/<[^>]+>/g, ''); // strip any HTML
+} else {
+  div.className = 'strip toplinks aux-content-widget-3';
+  var title = nameEl2.innerHTML.replace(/<[^>]+>/g, ''); // strip any HTML
+};
+
+title = title.replace(/(\([^\)]+\))/g, ''); // strip the date
+title = title.replace(/^\s+|\s+$/g, ''); // trim
 
 // GROUP Search Engines --------------------------------------------------
 
@@ -59,7 +70,7 @@ searchEngine("Freecovers",
                 "http://www.freecovers.net/search.php?search=%title",
                 "http://mycroft.mozdev.org/installos.php/18044/freecovers.png");
 searchEngine("YouTube",
-                "http://www.youtube.com/results?search_query=",
+                "http://www.youtube.com/results?search_query=%title",
                 "http://mycroft.mozdev.org/installos.php/13110/youtube.ico");
 searchEngine("NetFlix",
                 "http://www.netflix.com/Search?v1=%title",
@@ -136,7 +147,7 @@ searchEngine("OpenSubtitles EN",
 searchEngine("OpenSubtitles NL",
                 "http://www.opensubtitles.org/nl/sublanguageid-dut/moviename-%title",
                 "http://mycroft.mozdev.org/installos.php/25094/opensubtitle_imdb.ico");
-searchEngine("Bierdopje (TV Series)",
+searchEngine("Bierdopje",
                 "http://www.bierdopje.com/search/shows/%title",
                 "http://cdn.bierdopje.eu/favicon.ico");
 
@@ -156,7 +167,7 @@ searchEngine("Bierdopje (TV Series)",
 // END Search Engines ----------------------------------------------------
 
 function sectionHead(text) {
-  var label = document.createElement("h4");
+  var label = document.createElement("h5");
   label.innerHTML = text;
   div.appendChild(label);
 }
@@ -168,15 +179,19 @@ function horizontalrule() {
 function searchEngine(mTitle, searchurl, favicon) {
   var aLink = document.createElement("a");
   aLink.setAttribute("target","_blank");
-  aLink.style.marginLeft = "20px";
   aLink.style.textDecoration = 'none';
 
   aLink.href = getSearchURL(searchurl);
   aLink.title = "Search " + mTitle + " for: " + title;
   aLink.innerHTML = '<img src="' + favicon + '" align="absmiddle" border="0" vspace="3" height="16px"> <u>' + mTitle + '</u>';
   div.appendChild(aLink);
-
-  div.appendChild(document.createElement("br"));
+  if (namePos2 != null) {
+    aLink.style.marginLeft = "20px";
+    div.appendChild(document.createElement("br"));
+  } else {
+    aLink.setAttribute("style","white-space: pre-wrap; display: inline-block; width: 125px");
+    aLink.style.marginLeft = "10px";
+  };
 };
 
 function getSearchURL(url) {
@@ -185,4 +200,8 @@ function getSearchURL(url) {
   return url;
 }
 
-namePos.parentNode.insertBefore(div, namePos.nextSibling);
+if (namePos2 == null) {
+  namePos.parentNode.insertBefore(div, namePos.nextSibling);
+} else {
+  namePos2.parentNode.insertBefore(div, namePos2.nextSibling);
+};
