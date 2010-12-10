@@ -2,6 +2,7 @@ v2.2
 [New] Added support for Roger Ebert's film critics site through a google search.
 
 v2.1
+[New] Now also works with the old layout in combination with the new one.
 
 v2.0
 [New] Rebuild from the ground up to make it easier to add future search engines.
