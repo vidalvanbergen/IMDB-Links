@@ -82,6 +82,9 @@ searchEngine("YouTube",
 searchEngine("NetFlix",
                 "http://www.netflix.com/Search?v1=%title",
                 "http://cdn-0.nflximg.com/us/icons/nficon.ico");
+searchEngine("Roger Ebert",
+                "http://www.google.com/search?q=site:rogerebert.suntimes.com%20%title&ie=utf-8&oe=utf-8",
+                "http://rogerebert.suntimes.com/graphics/global/roger.jpg");
 
 horizontalrule();
 
