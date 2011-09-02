@@ -1,3 +1,6 @@
+v2.3
+[Fix] Updated to support changes in IMDb.
+
 v2.2
 [New] Added support for Roger Ebert's film critics site through a google search.
 
