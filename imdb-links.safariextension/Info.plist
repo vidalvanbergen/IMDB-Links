@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.3.1</string>
+	<string>2.4</string>
 	<key>CFBundleVersion</key>
-	<string>2.3.1</string>
+	<string>2.4</string>
 	<key>Chrome</key>
 	<dict/>
 	<key>Content</key>
@@ -34,6 +34,10 @@
 				<string>links.js</string>
 			</array>
 		</dict>
+		<key>Stylesheets</key>
+		<array>
+			<string>adblocker.css</string>
+		</array>
 		<key>Whitelist</key>
 		<array>
 			<string>http://*.imdb.com/title/*/</string>

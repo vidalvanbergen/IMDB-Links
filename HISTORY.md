@@ -1,3 +1,6 @@
+v2.4
+[New] Added a little ad blocker, mostly to fix the flow of the sidebar.
+
 v2.3.1
 [Fix] Updated demonoid link.
 
