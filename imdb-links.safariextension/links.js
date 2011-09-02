@@ -139,8 +139,8 @@ searchEngine("1337x",
                 "http://1337x.org/search/%title/0/",
                 "http://1337x.org/favicon.ico");
 searchEngine("Demonoid",
-                "http://www.demonoid.com/files/?category=1&subcategory=All&quality=All&seeded=0&external=2&query=%title&uid=0&sort=",
-                "http://www.demonoid.com/favicon.ico");
+                "http://www.demonoid.me/files/?category=1&subcategory=All&quality=All&seeded=0&external=2&query=%title&uid=0&sort=",
+                "http://www.demonoid.me/favicon.ico");
 
 horizontalrule();
 

@@ -1,3 +1,6 @@
+v2.3.1
+[Fix] Updated demonoid link.
+
 v2.3
 [Fix] Updated to support changes in IMDb.
 
